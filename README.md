@@ -1,4 +1,8 @@
-# Karabiner Vim Mode Plus
+# Karabiner Modifications
+
+This repository provides a collection of complex modifications for [Karabiner-Elements](https://karabiner-elements.pqrs.org/), including [Vim-style navigation](https://vim.fandom.com/wiki/Moving_around) and standalone virtual function key mappings for macOS.
+
+## 1. Vim Mode
 
 > **Maintenance Notice**
 >
@@ -19,11 +23,7 @@
 
 </details>
 
-A complex modification for [Karabiner-Elements](https://karabiner-elements.pqrs.org/) that mimics [Vim's navigation](https://vim.fandom.com/wiki/Moving_around) throughout your entire Mac.
-
-## 1. So what do you get?
-
-### 1.1 NORMAL mode
+### NORMAL mode
 
 Activate with `Caps Lock`.
 
@@ -91,7 +91,7 @@ To exit NORMAL mode at specific locations:
 | `o` | Exit NORMAL mode on a new line below the cursor |
 | `O` | Exit NORMAL mode on a new line above the cursor |
 
-### 1.2 VISUAL mode
+### VISUAL mode
 
 From within NORMAL mode, you can switch to VISUAL mode with `v`.
 
@@ -108,7 +108,20 @@ Unfortunately, you cannot switch to the other end of the selection with `o` as y
 | `c` | Change ("cut") the selection and exit Vim Mode entirely |
 | `x` | Remove the selection and enter NORMAL mode |
 
-## 2. Setting up
+## 2. Virtual Function Keys
+
+The standalone `virtual_function_keys.json` modification provides global shortcuts that do not depend on Vim mode. It maps the following shortcuts to virtual function keys:
+
+| Shortcut | Output |
+| --- | --- |
+| `Right Command` + `1` | `F13` |
+| `Right Command` + `2` | `F14` |
+| `Right Command` + `3` | `F15` |
+| `Right Command` + `4` | `F16` |
+
+These virtual keys can be consumed by tools such as Hammerspoon or Keyboard Maestro.
+
+## 3. Setting up
 
 1. Install [Karabiner-Elements](https://karabiner-elements.pqrs.org/).
 
@@ -118,23 +131,29 @@ Unfortunately, you cannot switch to the other end of the selection with `o` as y
    brew install --cask karabiner-elements
    ```
 
-2. Import this complex modification into Karabiner-Elements:
+2. Import the modifications you want into Karabiner-Elements:
 
-   [Import Karabiner Vim Mode Plus](karabiner://karabiner/assets/complex_modifications/import?url=https://git.sr.ht/~harmtemolder/karabiner-vim-mode-plus/blob/master/vim_mode_plus.json)
+   - [Import Vim Mode](karabiner://karabiner/assets/complex_modifications/import?url=https://github.com/baddate/karabiner-modifications/blob/master/vim_mode_plus.json)
+   - [Import Virtual Function Keys](karabiner://karabiner/assets/complex_modifications/import?url=https://github.com/baddate/karabiner-modifications/blob/master/virtual_function_keys.json)
 
-   You might have to copy and paste the link into your browser's address bar if your browser does not render it as a clickable link.
+   You might have to copy and paste these links into your browser's address bar if your browser does not render them as clickable links.
 
-## 3. Making changes
+## 4. Making changes
 
-The complex modifications are written in YAML and converted into JSON using `yml-to-json.py`.
+The Vim mode modification is maintained in `vim_mode_plus.yml`, while the standalone virtual function key modification is maintained in `virtual_function_keys.yml`. Convert either YAML file into JSON with `convert.sh`:
 
-You don't have to use YAML and can edit the JSON directly if you prefer.
+```bash
+./convert.sh vim_mode_plus.yml vim_mode_plus.json
+./convert.sh virtual_function_keys.yml virtual_function_keys.json
+```
 
-Either way, after making changes, make sure to remove and re-add all parts of this mod in Karabiner-Elements' **Complex Modifications** tab.
+You don't have to use YAML and can edit the JSON directly if you prefer. Import each modification separately in Karabiner-Elements' **Complex Modifications** tab.
+
+Either way, after making changes, make sure to remove and re-add the affected modification in Karabiner-Elements' **Complex Modifications** tab.
 
 The order of the modifications is important.
 
-## 4. Contributing
+## 5. Contributing
 
 Contributions are welcome!
 
@@ -161,7 +180,7 @@ When submitting a pull request, please describe what the change does and, when a
 
 For larger changes or new features, consider opening an issue first to discuss the proposed approach.
 
-## 5. Reporting issues
+## 6. Reporting issues
 
 If you encounter a bug or unexpected behavior, please [open an issue](../../issues).
 
@@ -179,7 +198,12 @@ Feature requests and suggestions are also welcome through [GitHub Issues](../../
 
 Before opening a new issue, please check the existing issues to see whether the problem or suggestion has already been reported.
 
-## 6. Changelog
+## 7. Changelog
+
+### Unreleased
+
+- Added standalone Virtual Function Keys mappings for `F13–F16`.
+- Added `;` as an alternative end-of-line shortcut in Vim NORMAL mode.
 
 ### Maintained Version
 
