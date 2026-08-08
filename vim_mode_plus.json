@@ -1,13 +1,13 @@
 {
   "title": "Vim Mode Plus",
   "maintainers": [
-    "harmtemolder"
+    "mercas"
   ],
-  "homepage": "https://git.sr.ht/~harmtemolder/karabiner-vim-mode-plus",
-  "import_url": "karabiner://karabiner/assets/complex_modifications/import?url=https://git.sr.ht/~harmtemolder/karabiner-vim-mode-plus/blob/master/vim_mode_plus.json",
+  "homepage": "https://github.com/baddate/karabiner-modifications",
+  "import_url": "karabiner://karabiner/assets/complex_modifications/import?url=https://github.com/baddate/karabiner-modifications/blob/master/vim_mode_plus.json",
   "rules": [
     {
-      "description": "(Vim 1/11) caps_lock -> on, caps_lock, enter, esc, control+[ or any pointing_button -> off",
+      "description": "(Vim 1/10) caps_lock -> on, caps_lock, esc, control+[ or any pointing_button -> off",
       "manipulators": [
         {
           "type": "basic",
@@ -22,8 +22,11 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification \"Press [i] to leave\" with title \"-- NORMAL --\"'",
-              "halt": true
+              "halt": true,
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": "NORMAL - Vim Mode Enabled"
+              }
             }
           ],
           "to_if_held_down": [
@@ -34,7 +37,10 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification \"Release [caps lock] to leave\" with title \"-- NORMAL --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": "NORMAL - Vim Mode Enabled"
+              }
             }
           ],
           "to_after_key_up": [
@@ -48,14 +54,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -81,20 +80,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -116,58 +111,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
-            },
-            {
-              "name": "vim_mode",
-              "type": "variable_if",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "return_or_enter"
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "vim_mode",
-                "value": 0
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
               }
-            },
-            {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
-            },
-            {
-              "key_code": "return_or_enter"
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -194,20 +147,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -229,20 +178,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -264,7 +209,10 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
@@ -278,7 +226,7 @@
       ]
     },
     {
-      "description": "(Vim 2/11) finger on trackpad + any key -> off",
+      "description": "(Vim 2/10) finger on trackpad + any key -> off",
       "available_since": "12.6.9",
       "manipulators": [
         {
@@ -294,7 +242,10 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
@@ -313,7 +264,7 @@
       ]
     },
     {
-      "description": "(Vim 3/11) visual mode + h,j,k,l,e,b,0,^,$,gg,G,{,} + d,y,c,x",
+      "description": "(Vim 3/10) visual mode + h,j,k,l,e,b,0,^,$,gg,G,{,} + d,y,c,x",
       "manipulators": [
         {
           "type": "basic",
@@ -334,20 +285,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification \"Press [v] again to go back to Vim Mode\" with title \"-- VISUAL --\"'"
+              "set_notification_message": {
+                "id": "visual_mode_enabled",
+                "text": "VISUAL - Visual Mode Enabled"
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -380,20 +327,53 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification \"Press [i] to leave\" with title \"-- NORMAL --\"'"
+              "set_notification_message": {
+                "id": "visual_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
+            },
+            {
+              "name": "visual_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "visual_mode",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 1
+              }
+            },
+            {
+              "set_notification_message": {
+                "id": "visual_mode_enabled",
+                "text": ""
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -418,14 +398,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -450,14 +423,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -482,14 +448,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -514,14 +473,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -547,14 +499,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -580,14 +525,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -620,14 +558,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -658,14 +589,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -696,14 +620,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -741,14 +658,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -785,14 +695,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -828,14 +731,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -866,14 +762,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -904,14 +793,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -945,20 +827,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification \"Press [i] to leave\" with title \"-- NORMAL --\"'"
+              "set_notification_message": {
+                "id": "visual_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -992,20 +870,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification \"Press [i] to leave\" with title \"-- NORMAL --\"'"
+              "set_notification_message": {
+                "id": "visual_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -1039,20 +913,22 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
+            },
+            {
+              "set_notification_message": {
+                "id": "visual_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -1083,20 +959,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification \"Press [i] to leave\" with title \"-- NORMAL --\"'"
+              "set_notification_message": {
+                "id": "visual_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -1123,14 +995,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -1157,14 +1022,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -1191,14 +1049,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "visual_mode",
@@ -1210,7 +1061,7 @@
       ]
     },
     {
-      "description": "(Vim 4/11) dd,de,db,d0,d^,d$,dgg,dG,d{,d}",
+      "description": "(Vim 4/10) dd,de,db,d0,d^,d$,dgg,dG,d{,d}",
       "manipulators": [
         {
           "type": "basic",
@@ -1241,14 +1092,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -1303,14 +1147,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -1353,14 +1190,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -1403,14 +1233,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -1460,14 +1283,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -1515,14 +1331,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -1570,14 +1379,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -1626,14 +1428,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -1681,14 +1476,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -1736,14 +1524,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -1791,14 +1572,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -1839,14 +1613,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -1863,7 +1630,7 @@
       ]
     },
     {
-      "description": "(Vim 5/11) yy,ye,yb,y0,y^,y$,ygg,yG,y{,y}",
+      "description": "(Vim 5/10) yy,ye,yb,y0,y^,y$,ygg,yG,y{,y}",
       "manipulators": [
         {
           "type": "basic",
@@ -1894,14 +1661,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -1956,14 +1716,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2006,14 +1759,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2056,14 +1802,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2113,14 +1852,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2168,14 +1900,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2223,14 +1948,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2279,14 +1997,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2334,14 +2045,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2389,14 +2093,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2444,14 +2141,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2499,14 +2189,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2523,7 +2206,7 @@
       ]
     },
     {
-      "description": "(Vim 6/11) cc,ce,cb,c0,c^,c$,cgg,cG,c{,c}",
+      "description": "(Vim 6/10) cc,ce,cb,c0,c^,c$,cgg,cG,c{,c}",
       "manipulators": [
         {
           "type": "basic",
@@ -2554,14 +2237,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2619,20 +2295,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2678,20 +2350,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2737,20 +2405,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2803,20 +2467,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2867,20 +2527,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2931,20 +2587,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -2993,14 +2645,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3051,20 +2696,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3115,20 +2756,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3179,20 +2816,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3243,20 +2876,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3273,7 +2902,7 @@
       ]
     },
     {
-      "description": "(Vim 7/11) x,X,p,P,u,control+r",
+      "description": "(Vim 7/10) x,X,p,P,u,control+r",
       "manipulators": [
         {
           "type": "basic",
@@ -3288,14 +2917,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3322,14 +2944,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3354,14 +2969,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3391,14 +2999,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3423,14 +3024,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3461,14 +3055,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3480,7 +3067,7 @@
       ]
     },
     {
-      "description": "(Vim 8/11) h,j,k,l (+ control/option/command/shift),e,b,0,^,$,gg,G,{,}",
+      "description": "(Vim 8/10) h,j,k,l (+ control/option/command/shift),e,b,0,^,$,gg,G,{,}",
       "manipulators": [
         {
           "type": "basic",
@@ -3503,14 +3090,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3540,14 +3120,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3577,14 +3150,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3614,14 +3180,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3646,14 +3205,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3678,14 +3230,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3716,14 +3261,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3753,14 +3291,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3790,14 +3321,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3835,14 +3359,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3878,14 +3395,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3920,14 +3430,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3957,14 +3460,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -3994,14 +3490,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -4013,7 +3502,7 @@
       ]
     },
     {
-      "description": "(Vim 9/11) i,I,a,A,o,O",
+      "description": "(Vim 9/10) i,I,a,A,o,O",
       "manipulators": [
         {
           "type": "basic",
@@ -4028,20 +3517,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -4074,20 +3559,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -4109,20 +3590,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -4155,20 +3632,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -4199,20 +3672,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -4251,20 +3720,16 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+              "set_notification_message": {
+                "id": "vim_mode_enabled",
+                "text": ""
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -4276,126 +3741,7 @@
       ]
     },
     {
-      "description": "(Vim 10/11) s,m,spacebar -> Hammerspoon modals",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "s"
-          },
-          "to": [
-            {
-              "key_code": "f20"
-            },
-            {
-              "set_variable": {
-                "name": "vim_mode",
-                "value": 0
-              }
-            },
-            {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
-            },
-            {
-              "name": "vim_mode",
-              "type": "variable_if",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "m"
-          },
-          "to": [
-            {
-              "key_code": "f19"
-            },
-            {
-              "set_variable": {
-                "name": "vim_mode",
-                "value": 0
-              }
-            },
-            {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
-            },
-            {
-              "name": "vim_mode",
-              "type": "variable_if",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "spacebar"
-          },
-          "to": [
-            {
-              "key_code": "f18"
-            },
-            {
-              "set_variable": {
-                "name": "vim_mode",
-                "value": 0
-              }
-            },
-            {
-              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
-            },
-            {
-              "name": "vim_mode",
-              "type": "variable_if",
-              "value": 1
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "(Vim 11/11) disable unused keys",
+      "description": "(Vim 10/10) disable unused keys",
       "manipulators": [
         {
           "type": "basic",
@@ -4415,14 +3761,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -4449,14 +3788,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -4483,14 +3815,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -4517,14 +3842,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -4551,14 +3869,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -4585,14 +3896,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -4619,14 +3923,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -4653,14 +3950,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
@@ -4687,14 +3977,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm",
-                "com.visualstudio.code.oss",
-                "md.obsidian",
-                "io.imdone.app"
-              ]
+              "bundle_identifiers": []
             },
             {
               "name": "vim_mode",
