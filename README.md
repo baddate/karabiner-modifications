@@ -53,6 +53,7 @@ Within NORMAL mode, you can move around with:
 | `0` | Move cursor to start of line (before any tabs) |
 | `^` | Move cursor to start of line (after any tabs) |
 | `$` | Move cursor to end of line |
+| `;` | Move cursor to end of line |
 | `g`, `g` | Move cursor to start of document |
 | `G` | Move cursor to end of document |
 | `{` | Move cursor to start of paragraph |
