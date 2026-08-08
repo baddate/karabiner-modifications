@@ -1,0 +1,40 @@
+title: Virtual Function Keys
+maintainers:
+  - mercas
+homepage: https://github.com/baddate/karabiner-modifications
+import_url: karabiner://karabiner/assets/complex_modifications/import?url=https://github.com/baddate/karabiner-modifications/blob/master/virtual_function_keys.json
+rules:
+  - description: Right Command + 1-4 -> F13-F16
+    manipulators:
+      - type: basic
+        from:
+          key_code: "1"
+          modifiers:
+            mandatory:
+              - right_command
+        to:
+          - key_code: f13
+      - type: basic
+        from:
+          key_code: "2"
+          modifiers:
+            mandatory:
+              - right_command
+        to:
+          - key_code: f14
+      - type: basic
+        from:
+          key_code: "3"
+          modifiers:
+            mandatory:
+              - right_command
+        to:
+          - key_code: f15
+      - type: basic
+        from:
+          key_code: "4"
+          modifiers:
+            mandatory:
+              - right_command
+        to:
+          - key_code: f16
